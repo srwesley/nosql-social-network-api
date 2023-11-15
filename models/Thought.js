@@ -1,6 +1,37 @@
 // Importing the required dependencies from the mongoose library and the other schema file Reaction.js
 const { Schema, model, Types } = require("mongoose");
 
+// Creates Reaction subdocument schema
+const reactionSchema = new Schema (
+    {
+        // Sets custom Id to avoid confusion with parent thought _id
+        reactionId: {
+            type: Schema.Types.ObjectId,
+            default: () => new Types.ObjectId(),
+        },
+        reactionBody: {
+            type: String,
+            required: true,
+            maxLength: 280,
+        },
+        username: {
+            type: String,
+            required: true,
+        },
+        createdAt: {
+            type: Date,
+            default: Date.now,
+            get: timestamp => new Date(timestamp).toLocaleDateString()
+        },
+    },
+    {
+        toJSON: {
+            getters: true,
+        },
+        id: false,
+    }
+)
+
 // Defining the Thought schema with the required fields and their respective data types
 const thoughtSchema = new Schema(
     {
@@ -34,37 +65,6 @@ const thoughtSchema = new Schema(
 thoughtSchema.virtual("reactionCount").get(function() {
     return this.reactions.length;
 });
-
-// Creates Reaction subdocument schema
-const reactionSchema = new Schema (
-    {
-        // Sets custom Id to avoid confusion with parent thought _id
-        reactionId: {
-            type: Schema.Types.ObjectId,
-            default: () => new Types.ObjectId(),
-        },
-        reactionBody: {
-            type: String,
-            required: true,
-            maxLength: 280,
-        },
-        username: {
-            type: String,
-            required: true,
-        },
-        createdAt: {
-            type: Date,
-            default: Date.now,
-            get: timestamp => new Date(timestamp).toLocaleDateString()
-        },
-    },
-    {
-        toJSON: {
-            getters: true,
-        },
-        id: false,
-    }
-)
 
 // Creates the Thought model from the thoughtSchema
 const Thought = model("Thought", thoughtSchema);
