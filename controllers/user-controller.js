@@ -13,6 +13,7 @@ const UserController = {
         User.findById(req.params.userId)
             .then(userData => res.json(userData))
             .catch(err => res.status(500).json(err));
+            // May need to populate thoughts - .populate("thoughts")
     },
 
     // Creates a user

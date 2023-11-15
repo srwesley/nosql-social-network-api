@@ -1,5 +1,5 @@
-const { Thought, User, Reaction } = require("../models");
-const {Types} = require("mongoose");
+// Define methods for CRUD operations on thoughts and reactions
+const { User, Thought } = require("../models");
 
 // Defines the ThoughtController object, which contains methods for handling various API requests related to thoughts
 const ThoughtController = {
