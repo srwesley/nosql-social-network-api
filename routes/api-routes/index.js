@@ -6,8 +6,8 @@ const userRoutes = require("./user-routes");
 const thoughtRoutes = require("./thought-routes");
 
 // Defines endpoints for user and thought routes
-router.use("/user", userRoutes);
-router.use("/thought", thoughtRoutes);
+router.use("/users", userRoutes);
+router.use("/thoughts", thoughtRoutes);
 
 // Exports the router
 module.exports = router;

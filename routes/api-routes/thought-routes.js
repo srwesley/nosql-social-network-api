@@ -4,7 +4,7 @@ const {
     getAllThoughts,
     getThoughtsById,
     createThought,
-    deleteThought,
+    deleteThoughtById,
     updateThoughtById,
     createReaction,
     deleteReaction,
@@ -14,7 +14,7 @@ const {
 router.route("/").get(getAllThoughts).post(createThought);
 
 // Defines the routes for GET, PUT, and DELETE thoughts
-router.route("/:thoughtId").get(getThoughtsById).put(updateThoughtById).delete(deleteThought);
+router.route("/:thoughtId").get(getThoughtsById).put(updateThoughtById).delete(deleteThoughtById);
 
 // Defines the route for POST reaction to a thought
 router.route("/:thoughtId/reactions").post(createReaction);
