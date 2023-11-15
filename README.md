@@ -8,4 +8,7 @@ This database is able to keep track of the users information, such as id numbers
 
 ## Video Link
 Since there is no actual publicly deployed application, and this is all in the backend, here is a walkthrough video to show the functionality of the application.
-[NoSQL-Social-Network-API Walkthrough.webm](https://github.com/srwesley/nosql-social-network-api/assets/5975345/4b4884f0-f83a-4cdc-ac64-09ff236cc48f)
+
+
+https://github.com/srwesley/nosql-social-network-api/assets/5975345/e779743d-61f9-4214-9df3-8765e4f1e595
+
